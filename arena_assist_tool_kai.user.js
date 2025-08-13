@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         donguri arena assist tool
-// @version      1.2.1c.パクリ5
+// @version      1.2.1c.パクリ6
 // @description  fix arena ui and add functions
 // @author       勝手にまほろば
 // @match        https://donguri.5ch.net/teambattle
@@ -1026,7 +1026,7 @@
       const link = document.createElement('a');
       link.style.color = '#666';
       link.style.textDecoration = 'underline';
-      link.textContent = 'arena assist tool - v1.2.1c.パクリ5';
+      link.textContent = 'arena assist tool - v1.2.1c.パクリ6';
       link.href = 'https://donguri-k.github.io/tools/arena-assist-tool';
       link.target = '_blank';
       const author = document.createElement('input');
@@ -2462,7 +2462,7 @@
             || lastLine.includes('あなたのチーム')
             || lastLine.includes('首都を奪取するには')
             || lastLine.includes('首都は攻撃できません')
-            || lastLine.includes('初期主張はマップの端')
+            || lastLine.includes('混雑したマップでは')
           ) {
             // 装備している防具と武器が力不足です。
             // 装備している防具と武器が強すぎます
