@@ -2428,7 +2428,7 @@
       success: [
         'アリーナチャレンジは失敗しました。',
         'リーダーになった',
-        'このタイルは攻撃できません。範囲外です。'
+        '範囲外です。'
       ],
       retry: [
         'あなたのチームは動きを使い果たしました。しばらくお待ちください。',
@@ -2459,9 +2459,9 @@
           let message = lastLine;
           let nextStep = [0, interval()];
           if (lastLine.startsWith('装備している')
-            || lastLine.includes('あなたのチームは首都を持っていないため、他のチームの首都に攻撃できません。')
-            || lastLine.includes('このタイルは攻撃できません')
-            || lastLine.includes('この首都は攻撃できません')
+            || lastLine.includes('あなたのチーム')
+            || lastLine.includes('首都を奪取するには')
+            || lastLine.includes('首都は攻撃できません')
           ) {
             // 装備している防具と武器が力不足です。
             // 装備している防具と武器が強すぎます
