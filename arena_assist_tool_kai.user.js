@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         donguri arena assist tool
-// @version      1.2.1c.パクリ2
+// @version      1.2.1c.パクリ3
 // @description  fix arena ui and add functions
-// @author       7234e634
+// @author       勝手にまほろば
 // @match        https://donguri.5ch.net/teambattle
 // @match        https://donguri.5ch.net/bag
 // ==/UserScript==
@@ -1026,11 +1026,11 @@
       const link = document.createElement('a');
       link.style.color = '#666';
       link.style.textDecoration = 'underline';
-      link.textContent = 'arena assist tool - v1.2.1c.パクリ2';
+      link.textContent = 'arena assist tool - v1.2.1c.パクリ3';
       link.href = 'https://donguri-k.github.io/tools/arena-assist-tool';
       link.target = '_blank';
       const author = document.createElement('input');
-      author.value = '作者 [ID: 7234e634]';
+      author.value = '作者 [ 勝手にまほろば ]';
       author.style.color = '#666';
       author.style.background = 'none';
       author.style.margin = '2px';
@@ -2427,8 +2427,7 @@
     const messageType = {
       success: [
         'アリーナチャレンジは失敗しました。',
-        'リーダーになった',
-        'このタイルは攻撃できません。範囲外です。'
+        'リーダーになった'
       ],
       retry: [
         'あなたのチームは動きを使い果たしました。しばらくお待ちください。',
@@ -2437,6 +2436,7 @@
       ],
       reset: [
         'No region',
+        'このタイルは攻撃できません。範囲外です。'
       ],
       quit: [
         '武器と防具を装備しなければなりません。',
