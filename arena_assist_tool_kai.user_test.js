@@ -1752,8 +1752,8 @@
       const newGrid = doc.querySelector('.grid');
       const rowsOrig = Number(newGrid.style.gridTemplateRows.match(/repeat\((\d+), 35px\)/)[1]);
       const colsOrig = Number(newGrid.style.gridTemplateColumns.match(/repeat\((\d+), 35px\)/)[1]);
-      const rows = rowsOrig - 1
-      const cols = colsOrig - 1
+      const rows = rowsOrig - 1;
+      const cols = colsOrig - 1;
 
       if (currentCells.length !== rows * cols) {
         grid.style.gridTemplateRows = newGrid.style.gridTemplateRows;
