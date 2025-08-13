@@ -1750,18 +1750,18 @@
       const capitalMap = JSON.parse(capitalMapString);
 
       const newGrid = doc.querySelector('.grid');
-      const rowsOrig = Number(newGrid.style.gridTemplateRows.match(/repeat\((\d+), 35px\)/)[1]);
-      const colsOrig = Number(newGrid.style.gridTemplateColumns.match(/repeat\((\d+), 35px\)/)[1]);
-      const rows = rowsOrig - 1;
-      const cols = colsOrig - 1;
+      const rows = Number(newGrid.style.gridTemplateRows.match(/repeat\((\d+), 35px\)/)[1]);
+      const cols = Number(newGrid.style.gridTemplateColumns.match(/repeat\((\d+), 35px\)/)[1]);
+      const rowsMax = rowsOrig - 1;
+      const colsMax = colsOrig - 1;
 
       if (currentCells.length !== rows * cols) {
         grid.style.gridTemplateRows = newGrid.style.gridTemplateRows;
         grid.style.gridTemplateColumns = newGrid.style.gridTemplateColumns;
         grid.innerHTML = '';
 
-        for (let i = 0; i < rows; i++) {
-          for (let j = 0; j < cols; j++) {
+        for (let i = 0; i < rowsMax; i++) {
+          for (let j = 0; j < colsMax; j++) {
             const cell = document.createElement('div');
             cell.className = 'cell';
             cell.dataset.row = i;
