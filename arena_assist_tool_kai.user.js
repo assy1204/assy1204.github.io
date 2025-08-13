@@ -2462,6 +2462,7 @@
             || lastLine.includes('あなたのチーム')
             || lastLine.includes('首都を奪取するには')
             || lastLine.includes('首都は攻撃できません')
+            || lastLine.includes('混雑したマップでは')
           ) {
             // 装備している防具と武器が力不足です。
             // 装備している防具と武器が強すぎます
