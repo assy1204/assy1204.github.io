@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         donguri arena assist tool
-// @version      1.2.1c.パクリ6
+// @version      1.2.1c.パクリ6_test
 // @description  fix arena ui and add functions
 // @author       勝手にまほろば
 // @match        https://donguri.5ch.net/teambattle
@@ -1026,7 +1026,7 @@
       const link = document.createElement('a');
       link.style.color = '#666';
       link.style.textDecoration = 'underline';
-      link.textContent = 'arena assist tool - v1.2.1c.パクリ6';
+      link.textContent = 'arena assist tool - v1.2.1c.パクリ6_test';
       link.href = 'https://donguri-k.github.io/tools/arena-assist-tool';
       link.target = '_blank';
       const author = document.createElement('input');
