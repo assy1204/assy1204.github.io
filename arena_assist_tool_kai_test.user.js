@@ -412,7 +412,7 @@
         batchSelectMenu.prepend(closeButton);
       })();
 
-      div.append(toggleViewButton, rangeAttackButton, autoJoinButton, settingsButton, cellButton);
+      div.append(skipAutoEquipButton, rangeAttackButton, autoJoinButton, settingsButton, cellButton);
       slideMenu.append(closeSlideMenuButton, startRangeAttackButton, pauseRangeAttackButton, resumeRangeAttackButton, batchSelectButton, deselectButton, batchSelectMenu);
       subMenu.append(div, slideMenu);
 
@@ -423,7 +423,7 @@
     main.style.flexWrap = 'nowrap';
     main.style.gap = '2px';
     main.style.justifyContent = 'center';
-    main.append(menuButton, skipAreaInfoButton, skipAutoEquipButton, equipButton, refreshButton);
+    main.append(menuButton, skipAreaInfoButton, equipButton, toggleViewButton, refreshButton);
 
     toolbar.append(main, subMenu);
   })();
