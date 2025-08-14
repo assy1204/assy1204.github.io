@@ -2430,8 +2430,10 @@
         'リーダーになった',
         '範囲外です。'
       ],
+      afterretry: [
+        '再建が必要です。'
+      ],
       retry: [
-        '再建が必要です。',
         '動きを使い果たしました。しばらくお待ちください。',
         'ng<>too fast',
         'res.ng'
@@ -2469,6 +2471,8 @@
             // 装備している防具と武器が強すぎます
             // 装備しているものは改造が多すぎます。改造の少ない他のものをお試しください
             nextStep = [index + 1, 2];
+          } else if (messageType.afterretry.some(v => lastLine.includes(v))) {
+            nextStep = [index, 2];
           } else if (messageType.retry.some(v => lastLine.includes(v))) {
             nextStep = [index, 20];
           } else if (messageType.reset.some(v => lastLine.includes(v))) { // 発生しない?
