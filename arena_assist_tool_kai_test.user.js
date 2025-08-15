@@ -2470,9 +2470,9 @@
             // 装備している防具と武器が力不足です。
             // 装備している防具と武器が強すぎます
             // 装備しているものは改造が多すぎます。改造の少ない他のものをお試しください
-            nextStep = [index + 1, 2];
+            nextStep = [index + 1, 1.5];
           } else if (messageType.afterretry.some(v => lastLine.includes(v))) {
-            nextStep = [index, 2];
+            nextStep = [index, 1.5];
           } else if (messageType.retry.some(v => lastLine.includes(v))) {
             nextStep = [index, 20];
           } else if (messageType.reset.some(v => lastLine.includes(v))) { // 発生しない?
@@ -2484,7 +2484,7 @@
             message = '[成功] ' + lastLine;
           } else if (lastLine.length > 100) {
             message = 'どんぐりシステム';
-            nextStep = [index, 2];
+            nextStep = [index, 1.5];
           }
 
           logMessage(regions[index], `next(${nextStep[1]}s): ${regions[nextStep[0]]}`, message);
