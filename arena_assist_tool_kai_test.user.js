@@ -2120,7 +2120,7 @@
     } else if (shouldSkipAreaInfo) {
       const { row, col, rank } = cell.dataset;
       if (arenaField.open) fetchArenaTable(row, col);
-      await autoEquipAndChallenge (row, col, rank);
+      await autoEquipAndChallenge(row, col, rank);
     } else {
       const { row, col } = cell.dataset;
       fetchArenaTable(row, col);
@@ -2131,7 +2131,7 @@
   autoEquipDialog.style.padding = '0';
   autoEquipDialog.style.background = '#fff';
   document.body.append(autoEquipDialog);
-  async function autoEquipAndChallenge (row, col, rank) {
+  async function autoEquipAndChallenge(row, col, rank) {
     if (shouldSkipAutoEquip) {
       arenaChallenge(row, col);
       return;
@@ -2181,7 +2181,7 @@
     }
   }
 
-  async function arenaChallenge (row, col){
+  async function arenaChallenge(row, col){
     const options = {
       method: 'POST',
       headers: {
