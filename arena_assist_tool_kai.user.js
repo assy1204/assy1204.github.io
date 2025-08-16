@@ -243,7 +243,7 @@
         const label = document.createElement('label');
         const intervalInput = document.createElement('input');
         intervalInput.type = 'number';
-        intervalInput.placeholder = '600';
+        intervalInput.placeholder = '60';
         intervalInput.style.width = '80px';
         intervalInput.style.background = '#fff';
         intervalInput.style.color = '#000';
@@ -251,7 +251,7 @@
         intervalInput.value = settings.autoJoinInterval || '';
         intervalInput.addEventListener('input', ()=>{
           const interval = intervalInput.valueAsNumber;
-          settings.autoJoinInterval = interval > 600 ? interval : 600;
+          settings.autoJoinInterval = interval > 60 ? interval : 60;
           localStorage.setItem('aat_settings', JSON.stringify(settings))
         })
 
@@ -263,7 +263,7 @@
         })
         closeButton.autofocus = true; // inputへのオートフォーカス阻止
         const p = document.createElement('p');
-        p.textContent = 'この画面を開いたままにしておくこと。最短600秒';
+        p.textContent = 'この画面を開いたままにしておくこと。最短60秒';
         p.style.margin = '0';
 
         container.append(log, label, p, closeButton);
@@ -2374,9 +2374,9 @@
     const interval = () => {
       const input = dialog.querySelector('input');
       let value = Number(input.value);
-      if (!value || value < 600) {
-        input.value = 600;
-        value = 600;
+      if (!value || value < 60) {
+        input.value = 60;
+        value = 60;
       }
       return value;
     }
