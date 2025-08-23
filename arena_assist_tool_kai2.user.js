@@ -2,7 +2,7 @@
 // @name         donguri arena assist tool
 // @version      1.2.2c.パクリ1
 // @description  fix arena ui and add functions
-// @author       7234e634
+// @author       勝手にまほろば
 // @match        https://donguri.5ch.net/teambattle
 // @match        https://donguri.5ch.net/bag
 // ==/UserScript==
@@ -1109,7 +1109,7 @@
       link.href = 'https://donguri-k.github.io/tools/arena-assist-tool';
       link.target = '_blank';
       const author = document.createElement('input');
-      author.value = '作者 [ID: 7234e634]';
+      author.value = '作者 [ 勝手にまほろば ]';
       author.style.color = '#666';
       author.style.background = 'none';
       author.style.margin = '2px';
@@ -1118,7 +1118,7 @@
       author.readOnly = 'true';
       author.addEventListener('click',()=>{
         author.select();
-        navigator.clipboard.writeText('7234e634');
+        navigator.clipboard.writeText('ま ほ ろ ば');
       })
       footer.append(link, author);
     })();
