@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         donguri arena assist tool
-// @version      1.2.2d.パクリ3
+// @version      1.2.2d.パクリ4
 // @description  fix arena ui and add functions
 // @author       勝手にまほろば
 // @match        https://donguri.5ch.net/teambattle
@@ -1105,7 +1105,7 @@
       const link = document.createElement('a');
       link.style.color = '#666';
       link.style.textDecoration = 'underline';
-      link.textContent = 'arena assist tool - v1.2.2d.パクリ3';
+      link.textContent = 'arena assist tool - v1.2.2d.パクリ4';
       link.href = 'https://donguri-k.github.io/tools/arena-assist-tool';
       link.target = '_blank';
       const author = document.createElement('input');
@@ -2699,11 +2699,11 @@
 
             if (success) {
               if (currentProgress < 50) {
-                nextProgress = Math.floor(Math.random() * 4 ) + 51; // 51 ~ 54
+                nextProgress = Math.floor(Math.random() * 4 ) + 56; // 51 ~ 61 ±5
               } else {
-                nextProgress = Math.floor(Math.random() * 4 ) + 2; // 2 ~ 5
+                nextProgress = Math.floor(Math.random() * 4 ) + 7; // 2 ~ 12 ±5
               }
-              next = `→ ${nextProgress}%`;
+              next = `→ ${nextProgress}±5%`;
               isAutoJoinRunning = false;
             } else if (processType === 'return') {
               next = '';
@@ -2765,11 +2765,11 @@
         }
         if (!success && regions[cellType].length === 0) {
           if (currentProgress < 50) {
-            nextProgress = Math.floor(Math.random() * 4 ) + 51; // 51 ~ 54
+            nextProgress = Math.floor(Math.random() * 4 ) + 56; // 51 ~ 61 ±5
           } else {
-            nextProgress = Math.floor(Math.random() * 4 ) + 2; // 2 ~ 5
+            nextProgress = Math.floor(Math.random() * 4 ) + 7; // 2 ~ 12 ±5
           }
-          const next = `→ ${nextProgress}%`;
+          const next = `→ ${nextProgress}±5%`;
           isAutoJoinRunning = false;
           logMessage(null, '攻撃可能なタイルが見つかりませんでした。', next);
           return;
