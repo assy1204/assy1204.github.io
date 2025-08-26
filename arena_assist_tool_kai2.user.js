@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         donguri arena assist tool
-// @version      1.2.2d.パクリ1
+// @version      1.2.2d.パクリ2
 // @description  fix arena ui and add functions
 // @author       勝手にまほろば
 // @match        https://donguri.5ch.net/teambattle
@@ -1105,7 +1105,7 @@
       const link = document.createElement('a');
       link.style.color = '#666';
       link.style.textDecoration = 'underline';
-      link.textContent = 'arena assist tool - v1.2.2d.パクリ1';
+      link.textContent = 'arena assist tool - v1.2.2d.パクリ2';
       link.href = 'https://donguri-k.github.io/tools/arena-assist-tool';
       link.target = '_blank';
       const author = document.createElement('input');
@@ -2569,10 +2569,10 @@
       ],
       retry: [
         'あなたのチームは動きを使い果たしました。しばらくお待ちください。',
-        'ng<>too fast',
+        'ng<>too fast'
       ],
       reset: [
-        'このタイルは攻撃できません。範囲外です。',
+        'このタイルは攻撃できません。範囲外です。'
       ],
       quit: [
         '最初にチームに参加する必要があります。',
@@ -2699,11 +2699,11 @@
 
             if (success) {
               if (currentProgress < 50) {
-                nextProgress = Math.floor(Math.random() * 10) + 70; // 70 ~ 80 +- 5
+                nextProgress = Math.floor(Math.random() * 6 ) + 50; // 50 ~ 55
               } else {
-                nextProgress = Math.floor(Math.random() * 10) + 20; // 20 ~ 30 +- 5
+                nextProgress = Math.floor(Math.random() * 6 ); // 0 ~ 5
               }
-              next = `→ ${nextProgress}±5%`;
+              next = `→ ${nextProgress}%`;
               isAutoJoinRunning = false;
             } else if (processType === 'return') {
               next = '';
@@ -2765,11 +2765,11 @@
         }
         if (!success && regions[cellType].length === 0) {
           if (currentProgress < 50) {
-            nextProgress = Math.floor(Math.random() * 10) + 70; // 70 ~ 80 +- 5
+            nextProgress = Math.floor(Math.random() * 6 ) + 50; // 50 ~ 55
           } else {
-            nextProgress = Math.floor(Math.random() * 10) + 20; // 20 ~ 30 +- 5
+            nextProgress = Math.floor(Math.random() * 6 ); // 0 ~ 5
           }
-          const next = `→ ${nextProgress}±5%`;
+          const next = `→ ${nextProgress}%`;
           isAutoJoinRunning = false;
           logMessage(null, '攻撃可能なタイルが見つかりませんでした。', next);
           return;
