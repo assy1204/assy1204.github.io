@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         donguri arena assist tool
-// @version      1.2.2d.パクリ2
+// @version      1.2.2d.パクリ3
 // @description  fix arena ui and add functions
 // @author       勝手にまほろば
 // @match        https://donguri.5ch.net/teambattle
@@ -1105,7 +1105,7 @@
       const link = document.createElement('a');
       link.style.color = '#666';
       link.style.textDecoration = 'underline';
-      link.textContent = 'arena assist tool - v1.2.2d.パクリ2';
+      link.textContent = 'arena assist tool - v1.2.2d.パクリ3';
       link.href = 'https://donguri-k.github.io/tools/arena-assist-tool';
       link.target = '_blank';
       const author = document.createElement('input');
@@ -2699,9 +2699,9 @@
 
             if (success) {
               if (currentProgress < 50) {
-                nextProgress = Math.floor(Math.random() * 6 ) + 50; // 50 ~ 55
+                nextProgress = Math.floor(Math.random() * 4 ) + 51; // 51 ~ 54
               } else {
-                nextProgress = Math.floor(Math.random() * 6 ); // 0 ~ 5
+                nextProgress = Math.floor(Math.random() * 4 ) + 2; // 2 ~ 5
               }
               next = `→ ${nextProgress}%`;
               isAutoJoinRunning = false;
@@ -2765,9 +2765,9 @@
         }
         if (!success && regions[cellType].length === 0) {
           if (currentProgress < 50) {
-            nextProgress = Math.floor(Math.random() * 6 ) + 50; // 50 ~ 55
+            nextProgress = Math.floor(Math.random() * 4 ) + 51; // 51 ~ 54
           } else {
-            nextProgress = Math.floor(Math.random() * 6 ); // 0 ~ 5
+            nextProgress = Math.floor(Math.random() * 4 ) + 2; // 2 ~ 5
           }
           const next = `→ ${nextProgress}%`;
           isAutoJoinRunning = false;
