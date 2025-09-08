@@ -2984,7 +2984,7 @@
       }
       progressBarBody.textContent = currentProgress + '%';
       progressBarBody.style.width = currentProgress + '%';
-      progressBarInfo.textContent = `第 ${currentPeriod} 期${str}`;
+      progressBarInfo.textContent = `[ﾊｰﾄﾞｺｱ] 第 ${currentPeriod} 期${str}`;
 
       const statBlock = doc.querySelector('.stat-block');
       wood = statBlock.textContent.match(/木材の数: (\d+)/)[1];
