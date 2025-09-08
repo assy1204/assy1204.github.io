@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         donguri arena assist tool
-// @version      1.2.2d.パクリ6hc
+// @version      1.2.2d.パクリ7hc
 // @description  fix arena ui and add functions
 // @author       勝手にまほろば
 // @match        https://donguri.5ch.net/teambattle
@@ -1105,7 +1105,7 @@
       const link = document.createElement('a');
       link.style.color = '#666';
       link.style.textDecoration = 'underline';
-      link.textContent = 'arena assist tool - v1.2.2d.パクリ6hc';
+      link.textContent = 'arena assist tool - v1.2.2d.パクリ7hc';
       link.href = 'https://donguri-k.github.io/tools/arena-assist-tool';
       link.target = '_blank';
       const author = document.createElement('input');
@@ -2330,7 +2330,7 @@
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
-      body: `row=${row}&col=${col}`
+      body: `m=hc&row=${row}&col=${col}`
     };
     try {
       const response = await fetch('/teamchallenge', options);
@@ -2411,7 +2411,7 @@
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: `row=${row}&col=${col}`
+        body: `m=hc&row=${row}&col=${col}`
       };
       cell.style.borderColor = '#4f6';
 
@@ -2896,7 +2896,7 @@
 
     async function challenge (region) {
       const [ row, col ] = region;
-      const body = `row=${row}&col=${col}`;
+      const body = `m=hc&row=${row}&col=${col}`;
       try {
         const res = await fetch('/teamchallenge', {
           method: 'POST',
