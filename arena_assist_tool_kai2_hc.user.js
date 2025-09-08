@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         donguri arena assist tool
-// @version      1.2.2d.パクリ5hc
+// @version      1.2.2d.パクリ6hc
 // @description  fix arena ui and add functions
 // @author       勝手にまほろば
 // @match        https://donguri.5ch.net/teambattle
@@ -1105,7 +1105,7 @@
       const link = document.createElement('a');
       link.style.color = '#666';
       link.style.textDecoration = 'underline';
-      link.textContent = 'arena assist tool - v1.2.2d.パクリ5hc';
+      link.textContent = 'arena assist tool - v1.2.2d.パクリ6hc';
       link.href = 'https://donguri-k.github.io/tools/arena-assist-tool';
       link.target = '_blank';
       const author = document.createElement('input');
@@ -1996,7 +1996,7 @@
   async function fetchSingleArenaInfo(elm) {
     try {
       const { row, col } = elm.dataset;
-      const url = `https://donguri.5ch.net/teambattle?r=${row}&c=${col}&m=hc`;
+      const url = `https://donguri.5ch.net/teambattle?m=hc&r=${row}&c=${col}`;
       const res = await fetch(url);
       if(!res.ok) throw new Error(res.status + ' res.ng');
       const text = await res.text();
@@ -2188,7 +2188,7 @@
   })();
 
   async function fetchArenaTable(row, col){
-    const url = `https://donguri.5ch.net/teambattle?r=${row}&c=${col}&m=hc`;
+    const url = `https://donguri.5ch.net/teambattle?m=hc&r=${row}&c=${col}`;
     try {
       const res = await fetch(url);
       if(!res.ok) throw new Error('res.ng');
@@ -2916,10 +2916,10 @@
     }
     async function equipChange (region) {
       const [ row, col ] = region;
-      const url = `https://donguri.5ch.net/teambattle?r=${row}&c=${col}&m=hc`; 
+      const url = `https://donguri.5ch.net/teambattle?m=hc&r=${row}&c=${col}`; 
       try {
         const res = await fetch(url);
-        if(!res.ok) throw new Error(`[${res.status}] /teambattle?r=${row}&c=${col}&m=hc}`);
+        if(!res.ok) throw new Error(`[${res.status}] /teambattle?m=hc&r=${row}&c=${col}}`);
         const text = await res.text();
         const doc = new DOMParser().parseFromString(text,'text/html');
         const h1 = doc?.querySelector('h1')?.textContent;
