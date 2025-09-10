@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name         donguri arena assist tool
-// @version      1.2.2d.パクリ4
-// @description  fix arena ui and add functions
+// @version      1.2.2d.パクリ9
+// @description fixes and additions
 // @author       勝手にまほろば
-// @match        https://donguri.5ch.net/teambattle
+// @match        https://donguri.5ch.net/teambattle?m=hc
+// @match        https://donguri.5ch.net/teambattle?m=l
 // @match        https://donguri.5ch.net/bag
 // ==/UserScript==
 
@@ -27,6 +28,14 @@
       })
     })
     return;
+  }
+
+ const MODEQ = location.search.slice(1);
+
+  if (MODEQ === 'm=l') {
+      const MODENAME = '[ﾗﾀﾞｰ] ';
+  } else {
+      const MODENAME = '[ﾊｰﾄﾞｺｱ] ';
   }
 
   const vw = Math.min(document.documentElement.clientWidth, window.innerWidth || 0);
@@ -1105,7 +1114,7 @@
       const link = document.createElement('a');
       link.style.color = '#666';
       link.style.textDecoration = 'underline';
-      link.textContent = 'arena assist tool - v1.2.2d.パクリ4';
+      link.textContent = 'arena assist tool - v1.2.2d.パクリ9';
       link.href = 'https://donguri-k.github.io/tools/arena-assist-tool';
       link.target = '_blank';
       const author = document.createElement('input');
@@ -1996,7 +2005,7 @@
   async function fetchSingleArenaInfo(elm) {
     try {
       const { row, col } = elm.dataset;
-      const url = `https://donguri.5ch.net/teambattle?r=${row}&c=${col}`;
+      const url = `https://donguri.5ch.net/teambattle?r=${row}&c=${col}&`+MODEQ;
       const res = await fetch(url);
       if(!res.ok) throw new Error(res.status + ' res.ng');
       const text = await res.text();
@@ -2188,7 +2197,7 @@
   })();
 
   async function fetchArenaTable(row, col){
-    const url = `https://donguri.5ch.net/teambattle?r=${row}&c=${col}`;
+    const url = `https://donguri.5ch.net/teambattle?r=${row}&c=${col}&`+MODEQ;
     try {
       const res = await fetch(url);
       if(!res.ok) throw new Error('res.ng');
@@ -2333,7 +2342,7 @@
       body: `row=${row}&col=${col}`
     };
     try {
-      const response = await fetch('/teamchallenge', options);
+      const response = await fetch('/teamchallenge?'+MODEQ, options);
       if(!response.ok){
         throw new Error('/teamchallenge res.ng');
       }
@@ -2416,7 +2425,7 @@
       cell.style.borderColor = '#4f6';
 
       try {
-        const response = await fetch('/teamchallenge', options);
+        const response = await fetch('/teamchallenge?'+MODEQ, options);
         const text = await response.text();
         let lastLine = text.trim().split('\n').pop();
         if(
@@ -2565,7 +2574,8 @@
 
     const messageTypes = {
       afterRetry: [
-        '再建が必要です。'
+        '再建が必要です。',
+        '防御設備を破壊しました。'
       ],
       retry: [
         'あなたのチームは動きを使い果たしました。しばらくお待ちください。',
@@ -2592,10 +2602,11 @@
       ],
       teamAdjacent: [
         'このタイルは攻撃できません。あなたのチームの制御領土に隣接していなければなりません。',
-        // 'このタイルは攻撃できません。首都を奪取するには、隣接タイルを3つ以上支配している必要があります。',
         'このタイルは攻撃できません。首都を奪取するには、隣接タイルを少なくとも3つ支配している必要があります。',
         'このタイルは攻撃できません。首都を奪取するには、隣接タイルを少なくとも2つ支配している必要があります。',
-        'このタイルは攻撃できません。自分の首都は攻撃できません。'
+        'このタイルは攻撃できません。首都を奪取するには、隣接タイルを少なくとも1つ支配している必要があります。',
+        'このタイルは攻撃できません。自分の首都は攻撃できません。',
+        'この首都は攻撃できません。相手の総タイル数の少なくとも'
       ],
       capitalAdjacent: [
         'このタイルは攻撃できません。混雑したマップでは、初期主張は正確に1つの首都に隣接していなければなりません。'
@@ -2628,8 +2639,10 @@
         cellType = 'nonAdjacent';
       } else if (regions.teamAdjacent.length > 0) {
         cellType = 'teamAdjacent';
-      } else {
+      } else if (regions.capitalAdjacent.length > 0) {
         cellType = 'capitalAdjacent';
+      } else {
+        cellType = 'mapEdge';
       }
 
 
@@ -2696,10 +2709,13 @@
                 processType = 'break';
               }
             }
-
             if (success) {
-              if (currentProgress < 50) {
+              if (currentProgress < 25) {
+                nextProgress = Math.floor(Math.random() * 4 ) + 35; // 30 ~ 40 ±5
+              } else if (currentProgress < 50) {
                 nextProgress = Math.floor(Math.random() * 4 ) + 56; // 51 ~ 61 ±5
+              } else if (currentProgress < 75) {
+                nextProgress = Math.floor(Math.random() * 4 ) + 85; // 80 ~ 90 ±5
               } else {
                 nextProgress = Math.floor(Math.random() * 4 ) + 7; // 2 ~ 12 ±5
               }
@@ -2764,8 +2780,12 @@
           }
         }
         if (!success && regions[cellType].length === 0) {
-          if (currentProgress < 50) {
+          if (currentProgress < 25) {
+            nextProgress = Math.floor(Math.random() * 4 ) + 35; // 30 ~ 40 ±5
+          } else if (currentProgress < 50) {
             nextProgress = Math.floor(Math.random() * 4 ) + 56; // 51 ~ 61 ±5
+          } else if (currentProgress < 75) {
+            nextProgress = Math.floor(Math.random() * 4 ) + 85; // 80 ~ 90 ±5
           } else {
             nextProgress = Math.floor(Math.random() * 4 ) + 7; // 2 ~ 12 ±5
           }
@@ -2898,7 +2918,7 @@
       const [ row, col ] = region;
       const body = `row=${row}&col=${col}`;
       try {
-        const res = await fetch('/teamchallenge', {
+        const res = await fetch('/teamchallenge?'+MODEQ, {
           method: 'POST',
           body: body,
           headers: headers
@@ -2916,7 +2936,7 @@
     }
     async function equipChange (region) {
       const [ row, col ] = region;
-      const url = `https://donguri.5ch.net/teambattle?r=${row}&c=${col}`; 
+      const url = `https://donguri.5ch.net/teambattle?r=${row}&c=${col}&`+MODEQ; 
       try {
         const res = await fetch(url);
         if(!res.ok) throw new Error(`[${res.status}] /teambattle?r=${row}&c=${col}}`);
@@ -2984,7 +3004,7 @@
       }
       progressBarBody.textContent = currentProgress + '%';
       progressBarBody.style.width = currentProgress + '%';
-      progressBarInfo.textContent = `第 ${currentPeriod} 期${str}`;
+      progressBarInfo.textContent = MODENAME+`第 ${currentPeriod} 期${str}`;
 
       const statBlock = doc.querySelector('.stat-block');
       wood = statBlock.textContent.match(/木材の数: (\d+)/)[1];
