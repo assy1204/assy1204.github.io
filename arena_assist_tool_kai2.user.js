@@ -38,13 +38,6 @@
       const MODENAME = ' [ﾊｰﾄﾞｺｱ]';
   }
 
-  let MODENAME;
-  if (MODEQ === 'm=l') {
-      MODENAME = '[ﾗﾀﾞｰ] ';
-  } else {
-      MODENAME = '[ﾊｰﾄﾞｺｱ] ';
-  }
-
   const vw = Math.min(document.documentElement.clientWidth, window.innerWidth || 0);
   const vh = Math.min(document.documentElement.clientHeight, window.innerHeight || 0);
 
