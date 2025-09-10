@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         donguri arena assist tool
-// @version      1.2.2d.パクリ9.1
+// @version      1.2.2d.パクリ9.2
 // @description fixes and additions
 // @author       勝手にまほろば
 // @match        https://donguri.5ch.net/teambattle?m=hc
@@ -1114,7 +1114,7 @@
       const link = document.createElement('a');
       link.style.color = '#666';
       link.style.textDecoration = 'underline';
-      link.textContent = 'arena assist tool - v1.2.2d.パクリ9.1';
+      link.textContent = 'arena assist tool - v1.2.2d.パクリ9.2';
       link.href = 'https://donguri-k.github.io/tools/arena-assist-tool';
       link.target = '_blank';
       const author = document.createElement('input');
@@ -3004,7 +3004,7 @@
       }
       progressBarBody.textContent = currentProgress + '%';
       progressBarBody.style.width = currentProgress + '%';
-      progressBarInfo.textContent = `${MODENAME} 第 ${currentPeriod} 期${str}`;
+      progressBarInfo.textContent = `${MODEQ} 第 ${currentPeriod} 期${str}`;
 
       const statBlock = doc.querySelector('.stat-block');
       wood = statBlock.textContent.match(/木材の数: (\d+)/)[1];
