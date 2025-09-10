@@ -2712,13 +2712,13 @@
             }
             if (success) {
               if (currentProgress < 25) {
-                nextProgress = Math.floor(Math.random() * 4 ) + 35; // 30 ~ 40 ±5
+                nextProgress = Math.floor(Math.random() * 4 ) + 35; // 30 ~ 43 (35 ~ 38 ±5)
               } else if (currentProgress < 50) {
-                nextProgress = Math.floor(Math.random() * 4 ) + 56; // 51 ~ 61 ±5
+                nextProgress = Math.floor(Math.random() * 4 ) + 56; // 51 ~ 64 (56 ~ 59 ±5)
               } else if (currentProgress < 75) {
-                nextProgress = Math.floor(Math.random() * 4 ) + 85; // 80 ~ 90 ±5
+                nextProgress = Math.floor(Math.random() * 4 ) + 85; // 80 ~ 93 (85 ~ 88 ±5)
               } else {
-                nextProgress = Math.floor(Math.random() * 4 ) + 7; // 2 ~ 12 ±5
+                nextProgress = Math.floor(Math.random() * 4 ) + 7; // 2 ~ 15 (7 ~ 10 ±5)
               }
               next = `→ ${nextProgress}±5%`;
               isAutoJoinRunning = false;
@@ -2782,13 +2782,13 @@
         }
         if (!success && regions[cellType].length === 0) {
           if (currentProgress < 25) {
-            nextProgress = Math.floor(Math.random() * 4 ) + 35; // 30 ~ 40 ±5
+            nextProgress = Math.floor(Math.random() * 4 ) + 35; // 30 ~ 43 (35 ~ 38 ±5)
           } else if (currentProgress < 50) {
-            nextProgress = Math.floor(Math.random() * 4 ) + 56; // 51 ~ 61 ±5
+            nextProgress = Math.floor(Math.random() * 4 ) + 56; // 51 ~ 64 (56 ~ 59 ±5)
           } else if (currentProgress < 75) {
-            nextProgress = Math.floor(Math.random() * 4 ) + 85; // 80 ~ 90 ±5
+            nextProgress = Math.floor(Math.random() * 4 ) + 85; // 80 ~ 93 (85 ~ 88 ±5)
           } else {
-            nextProgress = Math.floor(Math.random() * 4 ) + 7; // 2 ~ 12 ±5
+            nextProgress = Math.floor(Math.random() * 4 ) + 7; // 2 ~ 15 (7 ~ 10 ±5)
           }
           const next = `→ ${nextProgress}±5%`;
           isAutoJoinRunning = false;
