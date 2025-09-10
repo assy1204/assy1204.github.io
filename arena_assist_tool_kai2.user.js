@@ -33,9 +33,16 @@
  const MODEQ = location.search.slice(1);
 
   if (MODEQ === 'm=l') {
-      const MODENAME = '[ﾗﾀﾞｰ] ';
+      const MODENAME = ' [ﾗﾀﾞｰ]';
   } else {
-      const MODENAME = '[ﾊｰﾄﾞｺｱ] ';
+      const MODENAME = ' [ﾊｰﾄﾞｺｱ]';
+  }
+
+  let MODENAME;
+  if (MODEQ === 'm=l') {
+      MODENAME = '[ﾗﾀﾞｰ] ';
+  } else {
+      MODENAME = '[ﾊｰﾄﾞｺｱ] ';
   }
 
   const vw = Math.min(document.documentElement.clientWidth, window.innerWidth || 0);
@@ -3004,7 +3011,7 @@
       }
       progressBarBody.textContent = currentProgress + '%';
       progressBarBody.style.width = currentProgress + '%';
-      progressBarInfo.textContent = MODENAME+`第 ${currentPeriod} 期${str}`;
+      progressBarInfo.textContent = `第 ${currentPeriod} 期${str}`+MODENAME;
 
       const statBlock = doc.querySelector('.stat-block');
       wood = statBlock.textContent.match(/木材の数: (\d+)/)[1];
